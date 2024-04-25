@@ -16,8 +16,20 @@ import ToggleColorMode from './ToggleColorMode';
 
 import Sitemark from './SitemarkIcon';
 
+
+import { useNavigate } from 'react-router-dom'; 
+
 function AppAppBar({ mode, toggleColorMode }) {
   const [open, setOpen] = React.useState(false);
+  const navigate = useNavigate();                             
+
+  const signIn = () => {                                    
+    navigate('/signIn');
+  };
+
+  const signUp = () => {                                    
+    navigate('/signUp');
+  };
 
   const toggleDrawer = (newOpen) => () => {
     setOpen(newOpen);
@@ -136,18 +148,17 @@ function AppAppBar({ mode, toggleColorMode }) {
               variant="text"
               size="small"
               component="a"
-              href="/material-ui/getting-started/templates/sign-in/"
+              onClick={signIn}
               target="_blank"
             >
               로그인
-              링크!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
             </Button>
             <Button
               color="primary"
               variant="contained"
               size="small"
               component="a"
-              href="/material-ui/getting-started/templates/sign-up/"
+              onClick={signUp}
               target="_blank"
             >
               회원가입
